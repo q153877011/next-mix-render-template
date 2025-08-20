@@ -23,7 +23,7 @@ const Header = () => {
                     "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
                     "text-gray-300"
                   )}>
-                    首页
+                    Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>

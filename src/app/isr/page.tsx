@@ -1,18 +1,18 @@
 import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 
-// 配置 ISR，每60秒重新验证一次
+// Configure ISR to revalidate every 60 seconds
 export const revalidate = 60
 
-// 模拟外部 API 调用，使用真正的 fetch 来演示 ISR 缓存
+// Simulate external API call using real fetch to demonstrate ISR caching
 async function getISRData() {
-  // 在真实的 ISR 中，这个 fetch 会被 Next.js 缓存
+  // In real ISR, this fetch will be cached by Next.js
   const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
-    next: { revalidate: 60 } // 这个 fetch 结果会被缓存60秒
+    next: { revalidate: 60 } // This fetch result will be cached for 60 seconds
   })
   
   if (!response.ok) {
-    // 如果 API 失败，使用模拟数据
+    // If API fails, use mock data
     return {
       buildTime: new Date().toISOString(),
       dataSource: 'fallback',
@@ -43,32 +43,32 @@ export default async function ISRPage() {
     <main className="min-h-screen bg-black">
       <Header />
       
-      {/* 主标题区域 */}
+      {/* Main title area */}
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold text-white mb-6">
           EdgeOne Pages Next.js Starter - ISR
         </h1>
         <p className="text-xl text-gray-300 mb-4">
-          静态生成加定时更新,平衡性能与新鲜度。
+          Static generation with timed updates, balancing performance and freshness.
         </p>
         <p className="text-lg text-gray-400 mb-8">
-          适合新闻或博客网站,优势是快速加载并增量更新,避免全站重建,但过期后首次请求可能稍慢。
+          Suitable for news or blog websites, the advantage is fast loading and incremental updates, avoiding full site rebuilds, but the first request after expiration may be slightly slower.
         </p>
         <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
-          查看文档
+          View Documentation
         </Button>
       </div>
 
-      {/* 代码示例区域 */}
+      {/* Code example area */}
       <div className="container mx-auto px-4 mb-8">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
           <div className="bg-gray-900 rounded p-6 text-left">
             <pre className="text-sm">
               {`// app/isr/page.tsx
-export const revalidate = 60 // 页面级重新验证
+export const revalidate = 60 // page-level revalidation
 
 export default async function ISRPage() {
-  // 这个 fetch 的结果会被缓存60秒
+  // This fetch result will be cached for 60 seconds
   const response = await fetch('https://api.example.com/posts/1', {
     next: { revalidate: 60 }
   })
@@ -77,71 +77,71 @@ export default async function ISRPage() {
   
   return (
     <div>
-      <h2>ISR 演示</h2>
-      <p>生成时间: {new Date().toISOString()}</p>
-      <p>缓存状态: {data.cacheStatus}</p>
-      <p>数据来源: {data.dataSource}</p>
+      <h2>ISR Demo</h2>
+      <p>Build Time: {new Date().toISOString()}</p>
+      <p>Cache Status: {data.cacheStatus}</p>
+      <p>Data Source: {data.dataSource}</p>
     </div>
   )
 }
 
-// ISR 工作流程:
-// 1. 第一次访问 → 生成静态页面并缓存
-// 2. 60秒内访问 → 返回缓存的静态页面 (极快)
-// 3. 60秒后访问 → 后台重新生成,先返回旧版本
-// 4. 重新生成完成 → 更新缓存为新版本`}
+// ISR workflow:
+// 1. First visit → Generate static page and cache
+// 2. Visit within 60 seconds → Return cached static page (very fast)
+// 3. Visit after 60 seconds → Background regeneration, first return old version
+// 4. Regeneration complete → Update cache to new version`}
             </pre>
           </div>
         </div>
       </div>
 
-      {/* 动态数据展示区域 */}
+      {/* Dynamic data display area */}
       <div className="container mx-auto px-4 mb-20">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
           <div className="bg-green-600/20 border border-green-600 rounded-lg p-4 mb-6">
             <p className="text-green-400 text-sm">
-              ⏱️ 真正的 ISR：这个页面在构建时生成，缓存60秒。在生产环境中，60秒内的访问会返回相同的缓存页面！
+              ⏱️ True ISR：This page is generated at build time, cached for 60 seconds. In production, visits within 60 seconds will return the same cached page！
             </p>
           </div>
           
           <h2 className="text-2xl font-semibold text-white mb-4">
-            ISR:增量静态再生
+            ISR: Incremental Static Regeneration
           </h2>
           <p className="text-lg text-gray-300 mb-6">
-            这个页面展示真正的 ISR 行为：静态生成 + 定时重新验证
+            This page demonstrates true ISR behavior: static generation + timed revalidation
           </p>
           
           <div className="space-y-2 text-left max-w-lg mx-auto">
             <p className="text-gray-300">
-              <span className="text-blue-400">页面生成时间:</span> {data.buildTime}
+              <span className="text-blue-400">Page Build Time:</span> {data.buildTime}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">缓存状态:</span> {data.cacheStatus}
+              <span className="text-blue-400">Cache Status:</span> {data.cacheStatus}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">数据来源:</span> {data.dataSource}
+              <span className="text-blue-400">Data Source:</span> {data.dataSource}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">内容标题:</span> {data.title}
+              <span className="text-blue-400">Post Title:</span> {data.title}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">内容预览:</span> {data.body}
+              <span className="text-blue-400">Post Preview:</span> {data.body}
             </p>
           </div>
           
           <div className="mt-6 p-4 bg-blue-600/20 border border-blue-600 rounded-lg">
-            <h3 className="text-blue-400 font-semibold mb-2">ISR 特性说明</h3>
+            <h3 className="text-blue-400 font-semibold mb-2">ISR Feature Explanation</h3>
             <div className="text-sm text-gray-300 space-y-1">
-              <p>• <strong>开发模式:</strong> 每次都重新生成（用于开发调试）</p>
-              <p>• <strong>生产模式:</strong> 真正的缓存行为，60秒内返回相同内容</p>
-              <p>• <strong>后台更新:</strong> 缓存过期后，先返回旧版本，后台重新生成</p>
-              <p>• <strong>零停机:</strong> 更新过程中用户始终能访问页面</p>
+              <p>• <strong>Development Mode:</strong> Re-generates every time (for development debugging)</p>
+              <p>• <strong>Production Mode:</strong> True caching behavior, returns the same content within 60 seconds</p>
+              <p>• <strong>Background Update:</strong> Returns old version first, then re-generates in the background</p>
+              <p>• <strong>Zero Downtime:</strong> Users can always access the page during updates</p>
             </div>
           </div>
           
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-sm">
-              在生产环境中，这个页面会真正展示 ISR 的缓存效果
+              In production, this page will truly demonstrate the caching effect of ISR
             </p>
           </div>
         </div>

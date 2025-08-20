@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "EdgeOne Pages Next.js Starter - 混合渲染演示",
-  description: "在 EdgeOne Pages 上使用 Next.js 来构建高性能、可扩展的Web应用。演示 SSR、ISR、SSG、Node Functions 和 Edge Functions。",
+  title: "EdgeOne Pages Next.js Starter - Hybrid Rendering Demo",
+  description: "Using Next.js to build high-performance, scalable Web applications on EdgeOne Pages. Demonstrating SSR, ISR, SSG, Node Functions, and Edge Functions.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="dark">
+    <html lang="en-US" className="dark">
       <body className="bg-black text-white antialiased">
         {children}
       </body>

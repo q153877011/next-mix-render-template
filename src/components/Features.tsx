@@ -3,33 +3,33 @@ import FeatureCard from './FeatureCard'
 const Features = () => {
   const features = [
     {
-      title: "SSR (服务器端渲染)",
-      description: "每次请求后通过服务器实时渲染",
+      title: "Server-Side Rendering (SSR)",
+      description: "Real-time rendering through the server after each request",
       demoLink: "/ssr"
     },
     {
-      title: "ISR (增量静态再生)",
-      description: "静态生成 + 定时增量更新",
+      title: "Incremental Static Regeneration (ISR)",
+      description: "Static generation + scheduled incremental updates",
       demoLink: "/isr"
     },
     {
-      title: "SSG (静态站点生成)",
-      description: "在构建时预生成所有页面",
+      title: "Static Site Generation (SSG)",
+      description: "Pre-generate all pages at build time",
       demoLink: "/ssg"
     },
     {
-      title: "Streaming (流式渲染)",
-      description: "逐步渲染页面内容，提升用户体验",
+      title: "Streaming",
+      description: "Step-by-step rendering of page content, enhancing user experience",
       demoLink: "/streaming"
     },
     {
       title: "Node Functions",
-      description: "在 Node Runtime 运行代码,无需管理服务器",
+      description: "Run code in Node Runtime, no server management required",
       demoLink: "/node-functions"
     },
     {
       title: "Edge Functions",
-      description: "在 Edge Runtime 运行代码,无需管理服务器",
+      description: "Run code in Edge Runtime, no server management required",
       demoLink: "/edge-functions"
     }
   ]

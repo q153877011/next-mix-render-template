@@ -8,14 +8,14 @@ const Hero = () => {
           EdgeOne Pages Next.js Starter
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          在 EdgeOne Pages 上使用 Next.js 来构建高性能、可扩展的Web应用。利用 Node.js 运行时,实现服务器渲染、增量更新和复杂后端逻辑,同时结合边缘网络进行低延迟部署。
+          Build high-performance, scalable web applications using Next.js on EdgeOne Pages. Utilizing Node.js runtime, implement server rendering, incremental updates, and complex backend logic, while deploying with low latency using edge networks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-            一键部署
+            One-Click Deployment
           </Button>
           <Button size="lg" variant="outline" className="px-8 py-3 text-lg">
-            查看文档
+            View Documentation
           </Button>
         </div>
       </div>

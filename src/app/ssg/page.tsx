@@ -1,9 +1,9 @@
 import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 
-// 模拟在构建时获取数据，只在构建时执行一次
+// Simulate data retrieval at build time, only executed once
 async function getSSGData() {
-  // 模拟网络延迟
+  // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 100))
   
   return {
@@ -16,95 +16,95 @@ async function getSSGData() {
 
 // This page demonstrates Static Site Generation
 export default async function SSGPage() {
-  // 这个函数只在构建时执行，不会在运行时执行
+  // This function is only executed at build time and will not be executed at runtime
   const data = await getSSGData()
 
   return (
     <main className="min-h-screen bg-black">
       <Header />
       
-      {/* 主标题区域 */}
+      {/* Main title area */}
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold text-white mb-6">
           EdgeOne Pages Next.js Starter - SSG
         </h1>
         <p className="text-xl text-gray-300 mb-4">
-          在构建时预生成所有页面,提供最快的加载速度和最佳的性能。
+          Pre-generate all pages at build time, providing the fastest loading speed and best performance.
         </p>
         <p className="text-lg text-gray-400 mb-8">
-          适合企业官网和静态内容,优势是极快的页面加载和零服务器计算成本,但内容在部署后不会改变,适合营销落地页和文档网站。
+          Suitable for corporate websites and static content, the advantage is extremely fast page loading and zero server computation cost, but the content will not change after deployment, suitable for marketing landing pages and documentation websites.
         </p>
         <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
-          查看文档
+          View Documentation
         </Button>
       </div>
 
-      {/* 代码示例区域 */}
+      {/* Code example area */}
       <div className="container mx-auto px-4 mb-8">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
           <div className="bg-gray-900 rounded p-6 text-left">
             <pre className="text-sm">
               {`// app/ssg/page.tsx
 export default async function SSGPage() {
-  // 这个 fetch 只在构建时执行，会被完全静态化
+  // This fetch is only executed at build time and will be fully static
   const data = await fetch('https://api.example.com/static-data', {
-    cache: 'force-cache' // 强制缓存，构建时获取一次
+    cache: 'force-cache' // Force cache, fetched once at build time
   })
   
   return (
     <div>
-      <h2>SSG:静态站点生成</h2>
-      <p>这个页面在构建时生成，内容完全静态化。</p>
-      <p>构建时间: {data.buildTime}</p>
-      <p>部署时间: {data.deployTime}</p>
-      <p>静态数据: {data.staticValue}</p>
+      <h2>SSG: Static Site Generation</h2>
+      <p>This page is generated at build time, content is fully static.</p>
+      <p>Build Time: {data.buildTime}</p>
+      <p>Deploy Time: {data.deployTime}</p>
+      <p>Static Data: {data.staticValue}</p>
     </div>
   )
 }
 
-// 可选：如果需要动态路由
+// Optional: If dynamic routing is needed
 export async function generateStaticParams() {
-  return [] // 返回要预生成的路径参数
+  return [] // Return the path parameters to be pre-generated
 }`}
             </pre>
           </div>
         </div>
       </div>
 
-      {/* 动态数据展示区域 */}
+      {/* Dynamic data display area */}
       <div className="container mx-auto px-4 mb-20">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
           <div className="bg-purple-600/20 border border-purple-600 rounded-lg p-4 mb-6">
             <p className="text-purple-400 text-sm">
-              🏗️ 这个页面使用 SSG 策略，在构建时生成，内容完全静态化！
+              🏗️ This page uses the SSG strategy, generated at build time, content is fully static!
             </p>
           </div>
           
           <h2 className="text-2xl font-semibold text-white mb-4">
-            SSG:静态站点生成
+            SSG: Static Site Generation
           </h2>
           <p className="text-lg text-gray-300 mb-6">
-            这个页面在构建时生成,内容在部署后不会改变。
+            This page is generated at build time, content will not change after deployment.
           </p>
           
           <div className="space-y-2 text-left max-w-md mx-auto">
             <p className="text-gray-300">
-              <span className="text-blue-400">构建时间:</span> {data.buildTime}
+              <span className="text-blue-400">Build Time:</span> {data.buildTime}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">部署时间:</span> {data.deployTime}
+              <span className="text-blue-400">Deploy Time:</span> {data.deployTime}
             </p>
             <p className="text-gray-300">
               <span className="text-blue-400">生成位置:</span> {data.generatedAt}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">静态数据:</span> {data.staticValue}
+              <span className="text-blue-400">Static Data:</span> {data.staticValue}
             </p>
           </div>
           
           <div className="mt-6 text-center">
             <p className="text-gray-400 text-sm">
-              这些数据在构建时生成，无论刷新多少次都不会改变
+              These data are generated at build time and will not change no matter how many times you refresh
             </p>
           </div>
         </div>

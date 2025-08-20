@@ -1,6 +1,7 @@
 import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 
+
 // Simulate data retrieval at build time, only executed once
 async function getSSGData() {
   // Simulate network delay
@@ -89,10 +90,10 @@ export async function generateStaticParams() {
           
           <div className="space-y-2 text-left max-w-md mx-auto">
             <p className="text-gray-300">
-              <span className="text-blue-400">Build Time:</span> {new Date(data.buildTime).toLocaleString()}
+              <span className="text-blue-400">Build Time:</span> {data.buildTime}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">Deploy Time:</span> {new Date(data.deployTime).toLocaleString()}
+              <span className="text-blue-400">Deploy Time:</span> {data.deployTime}
             </p>
             <p className="text-gray-300">
               <span className="text-blue-400">Generated At:</span> {data.generatedAt}

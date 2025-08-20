@@ -2,36 +2,13 @@ import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 
 // Configure ISR to revalidate every 60 seconds
-export const revalidate = 60
+export const revalidate = 10
 
 // Simulate external API call using real fetch to demonstrate ISR caching
 async function getISRData() {
-  // In real ISR, this fetch will be cached by Next.js
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
-    next: { revalidate: 10 } // This fetch result will be cached for 60 seconds
-  })
-  
-  if (!response.ok) {
-    // If API fails, use mock data
-    return {
-      buildTime: new Date().toISOString(),
-      dataSource: 'fallback',
-      cacheStatus: 'generated at build time',
-      postId: 1,
-      title: 'ISR Demo Post (Fallback)',
-      body: 'This is a fallback post for ISR demonstration.'
-    }
-  }
-  
-  const post = await response.json()
-  
   return {
     buildTime: new Date().toISOString(),
-    dataSource: 'external API',
     cacheStatus: 'cached for 60 seconds',
-    postId: post.id,
-    title: post.title,
-    body: post.body.substring(0, 100) + '...'
   }
 }
 
@@ -80,16 +57,9 @@ export default async function ISRPage() {
       <h2>ISR Demo</h2>
       <p>Build Time: {new Date().toISOString()}</p>
       <p>Cache Status: {data.cacheStatus}</p>
-      <p>Data Source: {data.dataSource}</p>
     </div>
   )
-}
-
-// ISR workflow:
-// 1. First visit → Generate static page and cache
-// 2. Visit within 60 seconds → Return cached static page (very fast)
-// 3. Visit after 60 seconds → Background regeneration, first return old version
-// 4. Regeneration complete → Update cache to new version`}
+}`}
             </pre>
           </div>
         </div>
@@ -117,15 +87,6 @@ export default async function ISRPage() {
             </p>
             <p className="text-gray-300">
               <span className="text-blue-400">Cache Status:</span> {data.cacheStatus}
-            </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Data Source:</span> {data.dataSource}
-            </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Post Title:</span> {data.title}
-            </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Post Preview:</span> {data.body}
             </p>
           </div>
           

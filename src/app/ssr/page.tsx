@@ -4,7 +4,6 @@ import { headers } from 'next/headers'
 
 // Force dynamic rendering - disable static optimization
 export const dynamic = 'force-dynamic'
-export const revalidate = 0
 
 // Simulate fetching data from API, re-fetching every time
 async function getSSRData() {
@@ -60,7 +59,6 @@ export default async function SSRPage() {
               {`// app/ssr/page.tsx
 // Force dynamic rendering - disable static optimization
 export const dynamic = 'force-dynamic'
-export const revalidate = 0
 
 export default async function SSRPage() {
   // This function runs on the server for EVERY request
@@ -132,11 +130,11 @@ export default async function SSRPage() {
           <div className="mt-6 p-4 bg-blue-600/20 border border-blue-600 rounded-lg">
             <h3 className="text-blue-400 font-semibold mb-2">SSR Implementation Details</h3>
             <div className="text-sm text-gray-300 space-y-1">
-              <p>• <strong>Force Dynamic:</strong> export const dynamic = 'force-dynamic'</p>
+              <p>• <strong>Force Dynamic:</strong> export const dynamic = &apos;force-dynamic&apos;</p>
               <p>• <strong>No Revalidation:</strong> export const revalidate = 0</p>
-              <p>• <strong>Server Component:</strong> No 'use client' directive - runs on server</p>
+              <p>• <strong>Server Component:</strong> No &apos;use client&apos; directive - runs on server</p>
               <p>• <strong>Async Function:</strong> Uses async/await for server-side data fetching</p>
-              <p>• <strong>No Cache:</strong> cache: 'no-store' ensures fresh data every request</p>
+              <p>• <strong>No Cache:</strong> cache: &apos;no-store&apos; ensures fresh data every request</p>
               <p>• <strong>Server Rendering:</strong> HTML generated on server for each request</p>
               <p>• <strong>Real-time Data:</strong> Each page refresh shows new server-generated data</p>
             </div>

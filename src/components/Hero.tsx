@@ -11,10 +11,10 @@ const Hero = () => {
           Build high-performance, scalable web applications using Next.js on EdgeOne Pages. Utilizing Node.js runtime, implement server rendering, incremental updates, and complex backend logic, while deploying with low latency using edge networks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg cursor-pointer">
             One-Click Deployment
           </Button>
-          <Button size="lg" variant="outline" className="px-8 py-3 text-lg">
+          <Button size="lg" variant="outline" className="px-8 py-3 text-lg cursor-pointer">
             View Documentation
           </Button>
         </div>

@@ -35,7 +35,7 @@ export default async function SSGPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for corporate websites and static content, the advantage is extremely fast page loading and zero server computation cost, but the content will not change after deployment, suitable for marketing landing pages and documentation websites.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -89,17 +89,17 @@ export async function generateStaticParams() {
           </p>
           
           <div className="space-y-2 text-left max-w-md mx-auto">
-            <p className="text-gray-300">
-              <span className="text-blue-400">Build Time:</span> {data.buildTime}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Build Time:</span> {data.buildTime}
             </p>
-            <p className="text-gray-300">
+            <p className="text-gray-300 flex flex-row items-center justify-between">
               <span className="text-blue-400">Deploy Time:</span> {data.deployTime}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Generated At:</span> {data.generatedAt}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Generated At:</span> {data.generatedAt}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Static Data:</span> {data.staticValue}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Static Data:</span> {data.staticValue}
             </p>
           </div>
           

@@ -31,7 +31,7 @@ export default async function ISRPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for news or blog websites, the advantage is fast loading and incremental updates, avoiding full site rebuilds, but the first request after expiration may be slightly slower.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -82,11 +82,11 @@ export default async function ISRPage() {
           </p>
           
           <div className="space-y-2 text-left max-w-lg mx-auto">
-            <p className="text-gray-300">
-              <span className="text-blue-400">Page Build Time:</span> {data.buildTime}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Page Build Time:</span> {data.buildTime}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Cache Status:</span> {data.cacheStatus}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Cache Status:</span> {data.cacheStatus}
             </p>
           </div>
           

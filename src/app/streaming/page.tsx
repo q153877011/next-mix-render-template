@@ -18,7 +18,7 @@ async function SlowDataComponent() {
   }
   
   return (
-    <div className="bg-blue-600/20 border border-blue-600 rounded-lg p-4">
+    <div className="bg-blue-600/20 border border-blue-600 rounded-lg p-4 w-1/3">
       <h3 className="text-blue-400 font-semibold mb-2">Slow Component 1 (2s delay)</h3>
       <div className="text-sm text-gray-300 space-y-1">
         <p>Fetch Time: {data.fetchTime}</p>
@@ -41,7 +41,7 @@ async function AnotherSlowComponent() {
   }
   
   return (
-    <div className="bg-purple-600/20 border border-purple-600 rounded-lg p-4">
+    <div className="bg-purple-600/20 border border-purple-600 rounded-lg p-4 w-1/3">
       <h3 className="text-purple-400 font-semibold mb-2">Slow Component 2 (3s delay)</h3>
       <div className="text-sm text-gray-300 space-y-1">
         <p>Fetch Time: {data.fetchTime}</p>
@@ -55,7 +55,7 @@ async function AnotherSlowComponent() {
 // Fast loading component
 function FastComponent() {
   return (
-    <div className="bg-green-600/20 border border-green-600 rounded-lg p-4">
+    <div className="bg-green-600/20 border border-green-600 rounded-lg p-4 w-1/3">
       <h3 className="text-green-400 font-semibold mb-2">Fast Component (Load instantly)</h3>
       <div className="text-sm text-gray-300 space-y-1">
         <p>Load Time: {new Date().toISOString()}</p>
@@ -69,7 +69,7 @@ function FastComponent() {
 // Loading component
 function LoadingSpinner({ message }: { message: string }) {
   return (
-    <div className="bg-gray-600/20 border border-gray-600 rounded-lg p-4">
+    <div className="bg-gray-600/20 border border-gray-600 rounded-lg p-4 w-1/3">
       <div className="flex items-center space-x-3">
         <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
         <div>
@@ -98,7 +98,7 @@ export default function StreamingPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for data-intensive pages and complex content, advantages are faster first screen display and progressive content loading, supporting large pages and complex dashboards.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -115,7 +115,7 @@ export default function StreamingPage() {
             Streaming: Streaming Rendering Demo
           </h2>
           
-          <div className="space-x-4 flex flex-row items-center justift-between">
+          <div className="space-x-4 flex flex-row items-center justify-between">
             {/* Fast Component - Display immediately */}
             <FastComponent />
             

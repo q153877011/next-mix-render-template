@@ -18,7 +18,7 @@ const FeatureCard = ({ title, description, demoLink, className = '' }: FeatureCa
         <p className="text-gray-300 leading-relaxed mb-4">{description}</p>
       </div>
       <Link href={demoLink}>
-        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">
           View Demo
         </Button>
       </Link>

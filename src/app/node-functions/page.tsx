@@ -29,7 +29,7 @@ export default function NodeFunctionsPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for complex backend logic and data processing, the advantage is the complete Node.js ecosystem and npm package support, suitable for API endpoints, database operations, and third-party service integrations.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -40,16 +40,7 @@ export default function NodeFunctionsPage() {
           <div className="bg-gray-900 rounded p-6 text-left">
             <pre className="text-sm">
               {`export default function onRequest(context) {
-  const {geo} = context;
-
-  return new Response(JSON.stringify({
-    message: 'Hello Node!',
-    geo: geo,
-  }), {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+  return new Response('Hello Node!')
 }`}
             </pre>
           </div>
@@ -61,7 +52,7 @@ export default function NodeFunctionsPage() {
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
           <Button 
             onClick={handleClick}
-            className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6"
+            className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6 cursor-pointer"
           >
             Execute API Call
           </Button>

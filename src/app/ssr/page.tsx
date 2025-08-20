@@ -11,8 +11,6 @@ async function getSSRData() {
   await new Promise(resolve => setTimeout(resolve, 100))
   
   // Get request headers to prove this runs on server
-  const headersList = await headers()
-  const userAgent = headersList.get('user-agent') || 'Unknown'
   const timestamp = Date.now()
   
   return {
@@ -20,7 +18,6 @@ async function getSSRData() {
     serverTime: new Date().toISOString(),
     dataFetchTime: new Date().toISOString(),
     realtimeValue: Math.floor(Math.random() * 1000),
-    userAgent: userAgent.substring(0, 50) + '...',
     timestamp: timestamp,
     serverHash: Math.random().toString(36).substring(7)
   }
@@ -46,7 +43,7 @@ export default async function SSRPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for dynamic content and personalized pages, the advantage is that content is updated in real-time, but each request requires server processing, suitable for user dashboards and real-time data display.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg">
+        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -100,23 +97,20 @@ export default async function SSRPage() {
           </p>
           
           <div className="space-y-2 text-left max-w-lg mx-auto">
-            <p className="text-gray-300">
-              <span className="text-blue-400">Request Time:</span> {data.requestTime}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Request Time:</span> {data.requestTime}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Server Time:</span> {data.serverTime}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Server Time:</span> {data.serverTime}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Data Fetch Time:</span> {data.dataFetchTime}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Data Fetch Time:</span> {data.dataFetchTime}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Real-time Data:</span> {data.realtimeValue}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Real-time Data:</span> {data.realtimeValue}
             </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">User Agent:</span> {data.userAgent}
-            </p>
-            <p className="text-gray-300">
-              <span className="text-blue-400">Server Hash:</span> {data.serverHash}
+            <p className="text-gray-300 flex flex-row items-center justify-between">
+              <span className="text-blue-400 w-40 inline-block">Server Hash:</span> {data.serverHash}
             </p>
           </div>
           

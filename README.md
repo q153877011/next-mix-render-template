@@ -1,178 +1,140 @@
-# EdgeOne Pages Next.js Starter - 混合渲染演示
+# EdgeOne Pages Next.js Hybrid Rendering Template
 
-在 EdgeOne Pages 上使用 Next.js 来构建高性能、可扩展的Web应用。演示 SSR、ISR、SSG、Streaming、Node Functions 和 Edge Functions。
+A hybrid rendering demonstration project based on **EdgeOne Pages** and **Next.js 15**, showcasing SSR, ISR, SSG, Streaming, and other rendering strategies, as well as the use of Node Functions and Edge Functions.
 
-## ✨ 项目特性
+## ✨ Features
 
-### 🔄 混合渲染策略
-- **SSR (服务器端渲染)** - 每次请求后通过服务器实时渲染
-- **ISR (增量静态再生)** - 静态生成 + 定时增量更新
-- **SSG (静态站点生成)** - 在构建时预生成所有页面
-- **Streaming (流式渲染)** - 逐步渲染页面内容，提升用户体验
+- 🚀 **Hybrid Rendering Strategies** - Demonstrates SSR, ISR, SSG, Streaming, and other rendering methods
+- ⚡ **Modern Frontend** - Next.js 15 + React 18 + TypeScript
+- 🎨 **Aesthetic UI** - Tailwind CSS 4 + shadcn/ui component library
+- 🔧 **Out-of-the-Box** - Preconfigured development environment and build process
+- 📱 **Mobile-First** - Fully responsive design, supporting all devices
+- 🌐 **Edge Computing** - Supports Node Functions and Edge Functions
 
-### 🚀 运行时支持
-- **Node Functions** - 在 Node.js 运行时运行代码，支持完整的 Node.js API
-- **Edge Functions** - 在边缘运行时运行代码，提供最低延迟的全球部署
+## 🛠️ Technology Stack
 
-### 🎨 设计特色
-- **黑底白字主题** - 现代化的深色设计风格
-- **蓝色点缀色** - 使用 `#1c66e5` 作为主要强调色
-- **响应式布局** - 完美适配各种设备尺寸
-- **流畅动画** - 优雅的过渡效果和加载动画
+### Frontend
+- **Next.js 15.4.7** - React full-stack framework
+- **React 18.3.1** - User interface library
+- **TypeScript 5** - Type-safe JavaScript
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **shadcn/ui** - Modern UI component library
 
-## 🛠️ 技术实现
+### Backend
+- **EdgeOne Pages** - Edge computing platform
+- **Node Functions** - Node.js runtime functions
+- **Edge Functions** - Edge runtime functions
 
-### 核心技术栈
-- **Next.js 15** - 最新的 App Router 架构
-- **React 19** - 最新的 React 特性
-- **TypeScript** - 完整的类型安全
-- **Tailwind CSS v4** - 现代化的 CSS 框架
-- **shadcn/ui** - 高质量的可复用组件
+### Development Tools
+- **ESLint** - Code quality checking
+- **PostCSS** - CSS postprocessor
+- **Turbopack** - Fast build tool
 
-### 架构特点
-- **App Router** - 基于文件系统的路由
-- **Server Components** - 默认服务器端渲染
-- **Client Components** - 按需客户端交互
-- **API Routes** - 内置 API 端点支持
-- **Streaming** - 渐进式内容加载
+## 🚀 Quick Start
 
-## 📁 项目结构
+### Environment Requirements
 
-```
-next-mix-template/
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── hello/route.ts      # Node.js API 示例
-│   │   │   └── edge/route.ts       # Edge API 示例
-│   │   ├── ssr/page.tsx            # SSR 演示页面
-│   │   ├── isr/page.tsx            # ISR 演示页面
-│   │   ├── ssg/page.tsx            # SSG 演示页面
-│   │   ├── streaming/page.tsx      # Streaming 演示页面
-│   │   ├── node-functions/page.tsx # Node Functions 演示
-│   │   ├── edge-functions/page.tsx # Edge Functions 演示
-│   │   ├── layout.tsx              # 根布局组件
-│   │   └── page.tsx                # 首页
-│   ├── components/
-│   │   ├── ui/                     # shadcn/ui 组件
-│   │   ├── Header.tsx              # 导航头部
-│   │   ├── Hero.tsx                # 英雄区域
-│   │   ├── FeatureCard.tsx         # 特性卡片
-│   │   └── Features.tsx            # 特性展示
-│   └── lib/
-│       └── utils.ts                # 工具函数
-├── public/                          # 静态资源
-├── tailwind.config.ts              # Tailwind 配置
-├── components.json                  # shadcn/ui 配置
-└── package.json                     # 项目依赖
-```
+- Node.js 18.0 or higher version
+- EdgeOne Pages account
 
-## 🚀 快速开始
+### Install Dependencies
 
-### 环境要求
-- Node.js 18+ 
-- npm 或 yarn
-
-### 安装依赖
 ```bash
+# Clone the project
+git clone <your-repo-url>
+cd next-mix-template
+
+# Install dependencies
 npm install
 ```
 
-### 启动开发服务器
+### Local Development
+
 ```bash
-npm run dev
+# Start the development server
+edgeone pages dev
+
+# Access http://localhost:6699
 ```
 
-### 构建生产版本
+### Build
+
 ```bash
-npm run build
-npm start
+# Build the production version
+edgeone pages build
 ```
 
-## 🌐 访问地址
+## 📚 Feature Demonstrations
 
-- **首页**: `http://localhost:3000`
-- **SSR**: `http://localhost:3000/ssr`
-- **ISR**: `http://localhost:3000/isr`
-- **SSG**: `http://localhost:3000/ssg`
-- **Streaming**: `http://localhost:3000/streaming`
-- **Node Functions**: `http://localhost:3000/node-functions`
-- **Edge Functions**: `http://localhost:3000/edge-functions`
+### Hybrid Rendering Strategies
 
-## 🔌 API 端点
+**SSR (Server-Side Rendering)**
+- Path: `/ssr`
+- Characteristics: Re-renders on the server for each request
+- Suitable for: Dynamic content and personalized pages
 
-### Node.js Runtime
-- **GET/POST** `/api/hello` - 演示 Node.js 运行时特性
+**ISR (Incremental Static Regeneration)**
+- Path: `/isr`
+- Characteristics: Static generation + incremental updates
+- Suitable for: News or blog websites
 
-### Edge Runtime
-- **GET/POST** `/api/edge` - 演示边缘运行时特性
+**SSG (Static Site Generation)**
+- Path: `/ssg`
+- Characteristics: Pre-generates all pages at build time
+- Suitable for: Corporate websites and static content
 
-## 📚 功能详解
+**Streaming (Streaming Rendering)**
+- Path: `/streaming`
+- Characteristics: Gradually renders page content, enhancing user experience
+- Suitable for: Data-intensive pages and complex content
 
-### SSR (服务器端渲染)
-- 每次请求后通过服务器实时渲染
-- 确保内容始终是最新的
-- 适合动态内容和个性化页面
+### Server Functions
 
-### ISR (增量静态再生)
-- 静态生成 + 定时增量更新
-- 平衡性能和内容新鲜度
-- 适合博客、新闻等定期更新的内容
+**Node Functions**
+- Path: `/node-functions`
+- Characteristics: Runs code at Node.js runtime
+- Suitable for: Complex backend logic and data processing
 
-### SSG (静态站点生成)
-- 在构建时预生成所有页面
-- 提供最快的加载速度
-- 适合企业官网、文档等静态内容
+**Edge Functions**
+- Path: `/edge-functions`
+- Characteristics: Runs code at edge runtime
+- Suitable for: Real-time data processing and geolocation services
 
-### Streaming (流式渲染)
-- 逐步渲染页面内容
-- 提升用户体验和感知性能
-- 支持大型页面和复杂内容
+## 🗄️ Project Structure
 
-### Node Functions
-- 完整的 Node.js API 支持
-- 支持所有 npm 包
-- 适合复杂业务逻辑和数据处理
-
-### Edge Functions
-- 全球边缘部署
-- 超低延迟响应
-- 适合实时数据处理和地理位置服务
-
-## 🎨 自定义配置
-
-### 主题颜色
-在 `tailwind.config.ts` 中修改主色调：
-```typescript
-colors: {
-  primary: "#1c66e5", // 自定义主色调
-}
+```
+next-mix-template/
+├── src/                    # Source code directory
+│   ├── app/               # Next.js App Router
+│   │   ├── layout.tsx     # Root layout component
+│   │   ├── page.tsx       # Home page component
+│   │   ├── ssr/           # SSR demonstration pages
+│   │   ├── isr/           # ISR demonstration pages
+│   │   ├── ssg/           # SSG demonstration pages
+│   │   ├── streaming/     # Streaming demonstration pages
+│   │   ├── node-functions/# Node Functions demonstration pages
+│   │   ├── edge-functions/# Edge Functions demonstration pages
+│   │   ├── api/           # API routes
+│   │   └── globals.css    # Global styles
+│   ├── components/        # React components
+│   │   ├── ui/           # shadcn/ui component library
+│   │   ├── Header.tsx    # Page header component
+│   │   ├── Hero.tsx      # Hero section component
+│   │   ├── Features.tsx  # Features component
+│   │   └── FeatureCard.tsx # Feature card component
+│   └── lib/              # Utility functions
+├── public/               # Static resources
+├── package.json          # Project configuration
+├── next.config.ts        # Next.js configuration
+├── tailwind.config.ts    # Tailwind CSS configuration
+├── tsconfig.json         # TypeScript configuration
+└── components.json       # shadcn/ui configuration
 ```
 
-### 组件样式
-在 `src/app/globals.css` 中自定义全局样式：
-```css
-body {
-  background: #000000;  // 自定义背景色
-  color: #ffffff;       // 自定义文字色
-}
-```
+## 📄 License
 
-## 📖 学习资源
+This project uses the MIT License - View the [LICENSE](LICENSE) file for details.
 
-- [Next.js 官方文档](https://nextjs.org/docs)
-- [React 官方文档](https://react.dev/)
-- [Tailwind CSS 文档](https://tailwindcss.com/docs)
-- [shadcn/ui 组件库](https://ui.shadcn.com/)
+## 🚀 One-Click Deployment
 
-## 🤝 贡献指南
-
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
-
-## 📄 许可证
-
-MIT License
-
----
-
-**享受构建高性能 Web 应用的乐趣！** 🚀
+[![Deploy with EdgeOne Pages](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://edgeone.ai/pages/new?from=github&template=next-mix-template)

@@ -83,13 +83,13 @@ export default async function SSRPage() {
           
           <div className="space-y-2 text-left max-w-md mx-auto">
             <p className="text-gray-300">
-              <span className="text-blue-400">Request Time:</span> {data.requestTime}
+              <span className="text-blue-400">Request Time:</span> {new Date(data.requestTime).toLocaleString()}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">Server Time:</span> {data.serverTime}
+              <span className="text-blue-400">Server Time:</span> {new Date(data.serverTime).toLocaleString()}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">Data Fetch Time:</span> {data.dataFetchTime}
+              <span className="text-blue-400">Data Fetch Time:</span> {new Date(data.dataFetchTime).toLocaleString()  }
             </p>
             <p className="text-gray-300">
               <span className="text-blue-400">Real-time Data:</span> {data.realtimeValue}

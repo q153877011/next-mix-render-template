@@ -89,13 +89,13 @@ export async function generateStaticParams() {
           
           <div className="space-y-2 text-left max-w-md mx-auto">
             <p className="text-gray-300">
-              <span className="text-blue-400">Build Time:</span> {data.buildTime}
+              <span className="text-blue-400">Build Time:</span> {new Date(data.buildTime).toLocaleString()}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">Deploy Time:</span> {data.deployTime}
+              <span className="text-blue-400">Deploy Time:</span> {new Date(data.deployTime).toLocaleString()}
             </p>
             <p className="text-gray-300">
-              <span className="text-blue-400">生成位置:</span> {data.generatedAt}
+              <span className="text-blue-400">Generated At:</span> {data.generatedAt}
             </p>
             <p className="text-gray-300">
               <span className="text-blue-400">Static Data:</span> {data.staticValue}

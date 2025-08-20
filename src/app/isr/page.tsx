@@ -8,7 +8,7 @@ export const revalidate = 60
 async function getISRData() {
   // In real ISR, this fetch will be cached by Next.js
   const response = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
-    next: { revalidate: 60 } // This fetch result will be cached for 60 seconds
+    next: { revalidate: 10 } // This fetch result will be cached for 60 seconds
   })
   
   if (!response.ok) {

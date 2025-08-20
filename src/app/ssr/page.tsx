@@ -55,7 +55,7 @@ export default async function SSRPage() {
       <div className="container mx-auto px-4 mb-8">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
           <div className="bg-gray-900 rounded p-6 text-left">
-            <pre className="text-sm text-green-400">
+            <pre className="text-sm">
               {`// app/ssr/page.tsx
 // Force dynamic rendering - disable static optimization
 export const dynamic = 'force-dynamic'
@@ -77,14 +77,7 @@ export default async function SSRPage() {
       <p>Real-time Data: {jsonData.value}</p>
     </div>
   )
-}
-
-// Key SSR characteristics:
-// 1. export const dynamic = 'force-dynamic' - forces server rendering
-// 2. export const revalidate = 0 - disables caching
-// 3. Server Component (no 'use client' directive)
-// 4. async function that runs on server
-// 5. cache: 'no-store' for fresh data every time`}
+}`}
             </pre>
           </div>
         </div>

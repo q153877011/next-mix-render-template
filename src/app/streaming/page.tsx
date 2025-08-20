@@ -2,6 +2,10 @@ import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
 import { Suspense } from 'react'
 
+// Force dynamic rendering - disable static optimization
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // Simulate slow data fetching async component
 async function SlowDataComponent() {
   // Simulate network delay
@@ -149,6 +153,10 @@ export default function StreamingPage() {
           <div className="bg-gray-900 rounded p-6 text-left">
             <pre className="text-sm">
               {`// app/streaming/page.tsx
+// Force dynamic rendering - disable static optimization
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import { Suspense } from 'react'
 
 export default function StreamingPage() {

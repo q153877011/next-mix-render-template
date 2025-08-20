@@ -67,7 +67,7 @@ export default function NodeFunctionsPage() {
           </Button>
           
           
-          {data && <div className="space-y-2 text-left max-w-md mx-auto">
+          {data && <div className="space-y-2 text-left">
             <p className="text-gray-300">
               <span className="text-blue-400">Function Return:</span> {data}
             </p>

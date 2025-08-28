@@ -2,15 +2,19 @@
 
 import Header from '@/components/Header'
 import { Button } from '@/components/ui/button'
+import { Play } from 'lucide-react';
 import { useState, useEffect } from 'react'
 
 // This page demonstrates Edge Functions
 export default function EdgeFunctionsPage() {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState('')
   const handleClick = async () => {
+    setIsLoading(true)
     const res = await fetch('/hello-edge')
     const text = await res.text()
     setData(text)
+    setIsLoading(false)
   }
 
 
@@ -59,14 +63,21 @@ export default function EdgeFunctionsPage() {
       {/* Dynamic data display area */}
       <div className="container mx-auto px-4 mb-20">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
-          <Button 
+
+          <Button
             onClick={handleClick}
-            className="hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6 cursor-pointer"
+            disabled={isLoading}
+            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
           >
+            {isLoading ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+            ) : (
+              <Play className="w-4 h-4 mr-2" />
+            )}
             Execute API Call
           </Button>
           
-          {data && <div className="space-y-2 text-left max-w-md mx-auto">
+          {data && <div className="space-y-2 text-left overflow-hidden">
             <p className="text-gray-300">
               <span className="text-blue-400">Function Return:</span> {data}
             </p>

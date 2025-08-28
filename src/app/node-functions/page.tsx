@@ -1,35 +1,46 @@
-'use client'
+"use client";
 
-import Header from '@/components/Header'
-import { Button } from '@/components/ui/button'
-import { useState, useEffect } from 'react'
+import Header from "@/components/Header";
+import { Button } from "@/components/ui/button";
+import { Play } from "lucide-react";
+import { useState, useEffect } from "react";
 
 // This page demonstrates Node.js Functions
 export default function NodeFunctionsPage() {
-  const [data, setData] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState("");
   const handleClick = async () => {
-    const res = await fetch('/hello-node')
-    const text = await res.text()
-    setData(text)
-  }
-
+    setIsLoading(true);
+    const res = await fetch("/hello-node");
+    const text = await res.text();
+    setData(text);
+    setIsLoading(false);
+  };
 
   return (
     <main className="min-h-screen bg-black">
       <Header />
-      
+
       {/* Main title area */}
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold text-white mb-6">
           EdgeOne Pages Next.js Starter - Node Functions
         </h1>
         <p className="text-xl text-gray-300 mb-4">
-          Run code in Node.js at runtime, no server management required, supporting the full Node.js API.
+          Run code in Node.js at runtime, no server management required,
+          supporting the full Node.js API.
         </p>
         <p className="text-lg text-gray-400 mb-8">
-          Suitable for complex backend logic and data processing, the advantage is the complete Node.js ecosystem and npm package support, suitable for API endpoints, database operations, and third-party service integrations.
+          Suitable for complex backend logic and data processing, the advantage
+          is the complete Node.js ecosystem and npm package support, suitable
+          for API endpoints, database operations, and third-party service
+          integrations.
         </p>
-        <Button size="lg" variant="outline"  className="hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer">
+        <Button
+          size="lg"
+          variant="outline"
+          className="hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer"
+        >
           View Documentation
         </Button>
       </div>
@@ -50,22 +61,28 @@ export default function NodeFunctionsPage() {
       {/* Dynamic data display area */}
       <div className="container mx-auto px-4 mb-20">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
-          <Button 
+          <Button
             onClick={handleClick}
-            className="hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6 cursor-pointer"
+            disabled={isLoading}
+            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
           >
+            {isLoading ? (
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+            ) : (
+              <Play className="w-4 h-4 mr-2" />
+            )}
             Execute API Call
           </Button>
-          
-          
-          {data && <div className="space-y-2 text-left">
-            <p className="text-gray-300">
-              <span className="text-blue-400">Function Return:</span> {data}
-            </p>
-           
-          </div>}
+
+          {data && (
+            <div className="space-y-2 text-left">
+              <p className="text-gray-300">
+                <span className="text-blue-400">Function Return:</span> {data}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </main>
-  )
-} 
+  );
+}

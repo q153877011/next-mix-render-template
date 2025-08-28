@@ -9,7 +9,7 @@ export const revalidate = 0
 // Simulate slow data fetching async component
 async function SlowDataComponent() {
   // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 2000))
+  await new Promise(resolve => setTimeout(resolve, 5000))
   
   const data = {
     fetchTime: new Date().toISOString(),
@@ -32,7 +32,7 @@ async function SlowDataComponent() {
 // Another simulate slow data fetching async component
 async function AnotherSlowComponent() {
   // Simulate longer network delay
-  await new Promise(resolve => setTimeout(resolve, 3000))
+  await new Promise(resolve => setTimeout(resolve, 8000))
   
   const data = {
     fetchTime: new Date().toISOString(),
@@ -120,12 +120,12 @@ export default function StreamingPage() {
             <FastComponent />
             
             {/* Slow Component 1 - Use Suspense for streaming loading */}
-            <Suspense fallback={<LoadingSpinner message="Loading slow component 1 (2s)..." />}>
+            <Suspense fallback={<LoadingSpinner message="Loading slow component 1 (5s)..." />}>
               <SlowDataComponent />
             </Suspense>
             
             {/* Slow Component 2 - Use Suspense for streaming loading */}
-            <Suspense fallback={<LoadingSpinner message="Loading slow component 2 (3s)..." />}>
+            <Suspense fallback={<LoadingSpinner message="Loading slow component 2 (8s)..." />}>
               <AnotherSlowComponent />
             </Suspense>
           </div>

@@ -1,5 +1,4 @@
-import Header from '@/components/Header'
-import { Button } from '@/components/ui/button'
+import { PageLayout, DemoLayout, DataDisplay } from '@/components/layout'
 
 // Configure ISR to revalidate every 10 seconds
 export const revalidate = 10
@@ -16,32 +15,7 @@ async function getISRData() {
 export default async function ISRPage() {
   const data = await getISRData()
 
-  return (
-    <main className="min-h-screen bg-black">
-      <Header />
-      
-      {/* Main title area */}
-      <div className="container mx-auto px-4 py-20 text-center">
-        <h1 className="text-5xl font-bold text-white mb-6">
-          EdgeOne Pages Next.js Starter - ISR
-        </h1>
-        <p className="text-xl text-gray-300 mb-4">
-          Static generation with timed updates, balancing performance and freshness.
-        </p>
-        <p className="text-lg text-gray-400 mb-8">
-          Suitable for news or blog websites, the advantage is fast loading and incremental updates, avoiding full site rebuilds, but the first request after expiration may be slightly slower.
-        </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer">
-          View Documentation
-        </Button>
-      </div>
-
-      {/* Code example area */}
-      <div className="container mx-auto px-4 mb-8">
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
-          <div className="bg-gray-900 rounded p-6 text-left">
-            <pre className="text-sm">
-              {`// app/isr/page.tsx
+  const codeExample = `// app/isr/page.tsx
 export const revalidate = 10 // page-level revalidation
 
 export default async function ISRPage() {
@@ -59,54 +33,37 @@ export default async function ISRPage() {
       <p>Cache Status: {data.cacheStatus}</p>
     </div>
   )
-}`}
-            </pre>
-          </div>
-        </div>
-      </div>
+}`
 
-      {/* Dynamic data display area */}
-      <div className="container mx-auto px-4 mb-20">
-        <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
-          <div className="bg-green-600/20 border border-green-600 rounded-lg p-4 mb-6">
-            <p className="text-green-400 text-sm">
-              ⏱️ True ISR：This page is generated at build time, cached for 10 seconds. In production, visits within 10 seconds will return the same cached page！
-            </p>
-          </div>
-          
-          <h2 className="text-2xl font-semibold text-white mb-4">
-            ISR: Incremental Static Regeneration
-          </h2>
-          <p className="text-lg text-gray-300 mb-6">
-            This page demonstrates true ISR behavior: static generation + timed revalidation
-          </p>
-          
-          <div className="space-y-2 text-left max-w-lg mx-auto">
-            <p className="text-gray-300 flex flex-row items-center justify-between">
-              <span className="text-blue-400 w-40 inline-block">Page Build Time:</span> {data.buildTime}
-            </p>
-            <p className="text-gray-300 flex flex-row items-center justify-between">
-              <span className="text-blue-400 w-40 inline-block">Cache Status:</span> {data.cacheStatus}
-            </p>
-          </div>
-          
-          <div className="mt-6 p-4 bg-blue-600/20 border border-blue-600 rounded-lg">
-            <h3 className="text-blue-400 font-semibold mb-2">ISR Feature Explanation</h3>
-            <div className="text-sm text-gray-300 space-y-1">
-              <p>• <strong>Development Mode:</strong> Re-generates every time (for development debugging)</p>
-              <p>• <strong>Production Mode:</strong> True caching behavior, returns the same content within 10 seconds</p>
-              <p>• <strong>Background Update:</strong> Returns old version first, then re-generates in the background</p>
-              <p>• <strong>Zero Downtime:</strong> Users can always access the page during updates</p>
-            </div>
-          </div>
-          
-          <div className="mt-6 text-center">
-            <p className="text-gray-400 text-sm">
-              In production, this page will truly demonstrate the caching effect of ISR
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
+  const isrData = [
+    { label: 'Page Build Time', value: data.buildTime, color: 'text-blue-400' },
+    { label: 'Cache Status', value: data.cacheStatus, color: 'text-green-400' }
+  ]
+
+  const isrFeatures = [
+    { title: 'Development Mode', description: 'Re-generates every time (for development debugging)' },
+    { title: 'Production Mode', description: 'True caching behavior, returns the same content within 10 seconds' },
+    { title: 'Background Update', description: 'Returns old version first, then re-generates in the background' },
+    { title: 'Zero Downtime', description: 'Users can always access the page during updates' }
+  ]
+
+  return (
+    <PageLayout>
+      <DemoLayout
+        title="ISR"
+        subtitle="Static generation with timed updates, balancing performance and freshness."
+        description="Suitable for news or blog websites, the advantage is fast loading and incremental updates, avoiding full site rebuilds, but the first request after expiration may be slightly slower."
+        codeExample={codeExample}
+        renderMode="ISR"
+        dataDisplay={
+          <DataDisplay
+            title="ISR: Incremental Static Regeneration"
+            description="This page demonstrates true ISR behavior: static generation + timed revalidation"
+            data={isrData}
+            features={isrFeatures}
+          />
+        }
+      />
+    </PageLayout>
   )
 } 

@@ -7,12 +7,14 @@ const Header = () => {
     <header className="w-full bg-gray-900/50 backdrop-blur-sm border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-4">
-            <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
-              <img src="/eo-logo-white.svg" alt="logo" className="w-6 h-6" />
+          <a href="/" target="_blank" rel="noopener noreferrer">
+            <div className="flex items-center space-x-3">
+              <div className="w-6 h-6rounded-full flex items-center justify-center">
+                <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
+              </div>
+              <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
             </div>
-          </div>
+            </a>
 
           {/* Navigation */}
           <NavigationMenu>
@@ -104,8 +106,7 @@ const Header = () => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition-colors">
-                {/* <span className="text-white text-sm font-medium">github</span> */}
+              <div className="w-6 h-6 text-gray-400 rounded-full flex items-center justify-center ">
                  <svg
                 className="w-6 h-6"
                 fill="currentColor"

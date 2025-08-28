@@ -29,7 +29,7 @@ export default function EdgeFunctionsPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for real-time data processing and geolocation services, the advantage is global edge deployment and ultra-low latency response, suitable for lightweight API, real-time notifications, and content personalization.
         </p>
-        <Button className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
+        <Button size="lg" variant="outline" className="hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
           View Documentation
         </Button>
       </div>
@@ -61,7 +61,7 @@ export default function EdgeFunctionsPage() {
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8 text-center">
           <Button 
             onClick={handleClick}
-            className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6 cursor-pointer"
+            className="hover:bg-gray-700 text-white px-8 py-3 text-lg mb-6 cursor-pointer"
           >
             Execute API Call
           </Button>

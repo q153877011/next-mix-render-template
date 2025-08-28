@@ -1,13 +1,12 @@
-import Header from '@/components/Header'
+import { PageLayout } from '@/components/layout'
 import Hero from '@/components/Hero'
 import Features from '@/components/Features'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
-      <Header />
+    <PageLayout>
       <Hero />
       <Features />
-    </main>
+    </PageLayout>
   )
 }

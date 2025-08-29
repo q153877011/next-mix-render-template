@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LoadingProvider } from "@/components/providers/loading-provider";
+import { TopLoadingBar } from "@/components/ui/top-loading-bar";
 
 export const metadata: Metadata = {
   title: "EdgeOne Pages Next.js Starter - Hybrid Rendering Demo",
@@ -14,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en-US" className="dark">
       <body className="bg-black text-white antialiased">
-        {children}
+        <LoadingProvider>
+          <TopLoadingBar />
+          {children}
+        </LoadingProvider>
       </body>
     </html>
   );

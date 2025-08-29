@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header className="w-full bg-gray-900/50 backdrop-blur-sm border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between relative">
           <a href="/" target="_blank" rel="noopener noreferrer">
             <div className="flex items-center space-x-3">
               <div className="w-6 h-6 rounded-full flex items-center justify-center">
@@ -16,74 +16,76 @@ const Header = () => {
             </div>
           </a>
 
-          {/* Navigation */}
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link href="/" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  Home
-                </Link>
-              </NavigationMenuItem>
-              
-              <NavigationMenuItem>
-                <Link href="/ssr" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  SSR
-                </Link>
-              </NavigationMenuItem>
+          {/* Navigation - Centered */}
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <Link href="/" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    Home
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link href="/ssr" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    SSR
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/isr" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  ISR
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/isr" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    ISR
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/ssg" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  SSG
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/ssg" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    SSG
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/streaming" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  Streaming
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/streaming" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    Streaming
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/node-functions" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  Node Functions
-                </Link>
-              </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/node-functions" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    Node Functions
+                  </Link>
+                </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <Link href="/edge-functions" className={cn(
-                  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                  "text-gray-300"
-                )}>
-                  Edge Functions
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-            <NavigationMenuViewport />
-          </NavigationMenu>
+                <NavigationMenuItem>
+                  <Link href="/edge-functions" className={cn(
+                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50",
+                    "text-gray-300"
+                  )}>
+                    Edge Functions
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+              <NavigationMenuViewport />
+            </NavigationMenu>
+          </div>
 
           {/* GitHub */}
           <div className="flex items-center space-x-4">

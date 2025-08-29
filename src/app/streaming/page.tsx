@@ -19,7 +19,7 @@ async function SlowDataComponent() {
   
   return (
     <div className="bg-blue-600/20 border border-blue-600 rounded-lg p-4 w-1/3">
-      <h3 className="text-blue-400 font-semibold mb-2">Slow Component 1 (2s delay)</h3>
+      <h3 className="text-blue-400 font-semibold mb-2">Slow Component 1 (5s delay)</h3>
       <div className="text-sm text-gray-300 space-y-1">
         <p>Fetch Time: {data.fetchTime}</p>
         <p>Streaming Data: {data.streamingData}</p>
@@ -42,7 +42,7 @@ async function AnotherSlowComponent() {
   
   return (
     <div className="bg-purple-600/20 border border-purple-600 rounded-lg p-4 w-1/3">
-      <h3 className="text-purple-400 font-semibold mb-2">Slow Component 2 (3s delay)</h3>
+      <h3 className="text-purple-400 font-semibold mb-2">Slow Component 2 (8s delay)</h3>
       <div className="text-sm text-gray-300 space-y-1">
         <p>Fetch Time: {data.fetchTime}</p>
         <p>Complex Data: {data.complexData}</p>

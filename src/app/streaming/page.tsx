@@ -103,7 +103,7 @@ export default function StreamingPage() {
         </Button>
       </div>
        {/* Streaming Rendering Demo Area */}
-      <div className="container mx-auto px-4 mb-20">
+      <div className="container mx-auto px-4 mb-8">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
           <div className="bg-orange-600/20 border border-orange-600 rounded-lg p-4 mb-6">
             <p className="text-orange-400 text-sm">
@@ -148,7 +148,7 @@ export default function StreamingPage() {
         </div>
       </div>
       {/* Code Example Area */}
-      <div className="container mx-auto px-4 mb-8">
+      <div className="container mx-auto px-4 mb-20">
         <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-8">
           <div className="bg-gray-900 rounded p-6 text-left">
             <pre className="text-sm">

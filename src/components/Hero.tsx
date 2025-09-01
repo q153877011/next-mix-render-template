@@ -9,7 +9,7 @@ const Hero = () => {
           EdgeOne Pages Next.js Starter
         </h1>
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Build high-performance, scalable web applications using Next.js on EdgeOne Pages. Leverage complete Next.js rendering modes including SSR, ISR, and SSG, while building dynamic APIs and complex backend features, all powered by EdgeOne&apos;s high-performance global infrastructure.        </p>
+          Build high-performance, scalable web applications using Next.js on EdgeOne Pages. Leverage complete Next.js rendering modes including SSR, ISR, and SSG, while building dynamic APIs and complex backend features.        </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://edgeone.ai/pages/new?from=github&template=next-mix-render-template" target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg cursor-pointer">

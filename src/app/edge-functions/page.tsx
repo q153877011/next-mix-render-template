@@ -21,7 +21,7 @@ export default function EdgeFunctionsPage() {
   return (
     <main className="min-h-screen bg-black">
       <Header />
-      
+
       {/* Main title area */}
       <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-5xl font-bold text-white mb-6">
@@ -33,9 +33,11 @@ export default function EdgeFunctionsPage() {
         <p className="text-lg text-gray-400 mb-8">
           Suitable for real-time data processing and geolocation services, the advantage is global edge deployment and ultra-low latency response, suitable for lightweight API, real-time notifications, and content personalization.
         </p>
-        <Button size="lg" variant="outline" className="hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
-          View Documentation
-        </Button>
+        <a href="https://edgeone.ai/document/187317955530207232" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" variant="outline" className="hover:bg-gray-700 text-white px-8 py-3 text-lg cursor-pointer">
+            View Documentation
+          </Button>
+        </a>
       </div>
 
       {/* Code example area */}
@@ -76,12 +78,12 @@ export default function EdgeFunctionsPage() {
             )}
             Execute API Call
           </Button>
-          
+
           {data && <div className="space-y-2 text-left overflow-hidden">
             <p className="text-gray-300">
               <span className="text-blue-400">Function Return:</span> {data}
             </p>
-            
+
           </div>}
         </div>
       </div>

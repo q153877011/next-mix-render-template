@@ -36,13 +36,15 @@ export default function NodeFunctionsPage() {
           for API endpoints, database operations, and third-party service
           integrations.
         </p>
-        <Button
-          size="lg"
-          variant="outline"
-          className="hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer"
-        >
-          View Documentation
-        </Button>
+        <a href="https://edgeone.ai/document/187318055541846016" target="_blank" rel="noopener noreferrer">
+          <Button
+            size="lg"
+            variant="outline"
+            className="hover:bg-gray-700 text-white px-8 py-3 text-lg  cursor-pointer"
+          >
+            View Documentation
+          </Button>
+        </a>
       </div>
 
       {/* Code example area */}
